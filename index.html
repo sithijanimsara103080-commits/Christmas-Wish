@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Wishes - Create & Share Personalized Holiday Greetings</title>
+  <meta property="og:title" content="Christmas Wishes - Create & Share Personalized Holiday Greetings">
+  <meta property="og:description"
+    content="Create magical Christmas cards and share joy with your loved ones! send personalized wishes with beautiful designs.">
+  <meta property="og:image"
+    content="https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#DC2626',
+            secondary: '#059669'
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :where([class^="ri-"])::before {
+      content: "\f3c2";
+    }
+
+    .christmas-font {
+      font-family: "Mountains of Christmas", serif;
+    }
+
+    .sinhala-font {
+      font-family: 'Noto Sans Sinhala', sans-serif;
+    }
+
+    .tamil-font {
+      font-family: 'Noto Sans Tamil', sans-serif;
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      z-index: 1000;
+      user-select: none;
+      pointer-events: none;
+      color: white;
+      font-size: 1rem;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      from {
+        transform: translateY(-100vh) rotate(0deg);
+      }
+
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+
+    .card-preview {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .ornament {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #DC2626, #B91C1C);
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .ornament::before {
+      content: '';
+      position: absolute;
+      top: -0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0.8rem;
+      height: 0.8rem;
+      background: #FFD700;
+      border-radius: 50%;
+    }
+
+    .ornament::after {
+      content: '';
+      position: absolute;
+      top: -0.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0.3rem;
+      height: 0.5rem;
+      background: #8B4513;
+    }
+
+    .snowman {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 100;
+      animation: snowmanBounce 3s ease-in-out infinite;
+    }
+
+    .christmas-tree {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      animation: treeGlow 2s ease-in-out infinite alternate;
+    }
+
+    @media (max-width: 768px) {
+      .snowman {
+        left: 10px;
+        bottom: 10px;
+        transform: scale(0.7);
+      }
+
+      .christmas-tree {
+        right: 10px;
+        bottom: 10px;
+        transform: scale(0.7);
+      }
+
+      .snowman .text-6xl {
+        font-size: 2.5rem;
+      }
+
+      .christmas-tree .text-6xl {
+        font-size: 2.5rem;
+      }
+    }
+
+    @keyframes snowmanBounce {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(2deg);
+      }
+    }
+
+    @keyframes treeGlow {
+      0% {
+        filter: brightness(1) drop-shadow(0 0 5px #059669);
+      }
+
+      100% {
+        filter: brightness(1.2) drop-shadow(0 0 15px #10B981);
+      }
+    }
+
+    .tree-lights {
+      animation: twinkle 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: 0.6;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .christmas-lights {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      z-index: 1001;
+      pointer-events: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+    }
+
+    .light {
+      width: 12px;
+      height: 16px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      position: relative;
+      animation: lightGlow 2s ease-in-out infinite;
+    }
+
+    .light::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 6px;
+      background: #2d3748;
+      border-radius: 50%;
+    }
+
+    .light::after {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 6px;
+      background: #2d3748;
+    }
+
+    .light.red {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      animation-delay: 0s;
+    }
+
+    .light.green {
+      background: linear-gradient(135deg, #10b981, #059669);
+      animation-delay: 0.3s;
+    }
+
+    .light.blue {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      animation-delay: 0.6s;
+    }
+
+    .light.yellow {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      animation-delay: 0.9s;
+    }
+
+    .light.purple {
+      background: linear-gradient(135deg, #a855f7, #9333ea);
+      animation-delay: 1.2s;
+    }
+
+    .light.orange {
+      background: linear-gradient(135deg, #fb923c, #ea580c);
+      animation-delay: 1.5s;
+    }
+
+    @keyframes lightGlow {
+
+      0%,
+      100% {
+        filter: brightness(1) drop-shadow(0 0 5px currentColor);
+        transform: scale(1);
+      }
+
+      50% {
+        filter: brightness(1.5) drop-shadow(0 0 15px currentColor);
+        transform: scale(1.1);
+      }
+    }
+
+    .bg-christmas-tree {
+      position: fixed;
+      right: -100px;
+      bottom: -50px;
+      width: 300px;
+      height: 400px;
+      z-index: 1;
+      opacity: 0.1;
+      animation: tree3D 8s ease-in-out infinite;
+      transform-style: preserve-3d;
+    }
+
+    @keyframes tree3D {
+
+      0%,
+      100% {
+        transform: rotateY(0deg) rotateX(10deg) translateZ(0px);
+      }
+
+      25% {
+        transform: rotateY(15deg) rotateX(5deg) translateZ(20px);
+      }
+
+      50% {
+        transform: rotateY(0deg) rotateX(-5deg) translateZ(40px);
+      }
+
+      75% {
+        transform: rotateY(-15deg) rotateX(5deg) translateZ(20px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .christmas-lights {
+        height: 40px;
+      }
+
+      .light {
+        width: 10px;
+        height: 14px;
+      }
+
+      .bg-christmas-tree {
+        width: 200px;
+        height: 280px;
+        right: -50px;
+      }
+    }
+
+    /* View states */
+    .creator-view,
+    .receiver-view,
+    .preview-view {
+      display: none;
+    }
+
+    .active-view {
+      display: block;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Fireworks effect */
+    .firework {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px 3px;
+      animation: firework 1s ease-out;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    @keyframes firework {
+      0% {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(var(--x), var(--y));
+        opacity: 0;
+      }
+    }
+
+    /* Confetti effect */
+    .confetti {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      opacity: 0;
+      animation: confetti 4s ease-in-out;
+      z-index: 100;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    @keyframes confetti {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    /* Card container for download */
+    .card-container {
+      position: relative;
+      width: 500px;
+      height: 625px;
+      margin: 0 auto;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    @media (max-width: 600px) {
+      .card-container {
+        width: 90vw;
+        height: 112.5vw;
+        /* Maintain 5:4 aspect ratio */
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-red-50 to-green-50 font-['Inter']">
+  <div class="christmas-lights">
+    <div class="light red"></div>
+    <div class="light green"></div>
+    <div class="light blue"></div>
+    <div class="light yellow"></div>
+    <div class="light purple"></div>
+    <div class="light orange"></div>
+    <div class="light red"></div>
+    <div class="light green"></div>
+    <div class="light blue"></div>
+    <div class="light yellow"></div>
+    <div class="light purple"></div>
+    <div class="light orange"></div>
+    <div class="light red"></div>
+    <div class="light green"></div>
+    <div class="light blue"></div>
+    <div class="light yellow"></div>
+    <div class="light purple"></div>
+    <div class="light orange"></div>
+    <div class="light red"></div>
+    <div class="light green"></div>
+  </div>
+  <div class="bg-christmas-tree">
+    <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="treeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#059669;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <polygon points="150,50 120,120 180,120" fill="url(#treeGradient)" filter="url(#glow)" />
+      <polygon points="150,70 110,140 190,140" fill="url(#treeGradient)" filter="url(#glow)" />
+      <polygon points="150,90 100,160 200,160" fill="url(#treeGradient)" filter="url(#glow)" />
+      <polygon points="150,110 90,180 210,180" fill="url(#treeGradient)" filter="url(#glow)" />
+      <polygon points="150,130 80,200 220,200" fill="url(#treeGradient)" filter="url(#glow)" />
+      <rect x="140" y="200" width="20" height="40" fill="#8b4513" />
+      <circle cx="130" cy="90" r="3" fill="#ef4444">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="170" cy="110" r="3" fill="#fbbf24">
+        <animate attributeName="opacity" values="1;0.5;1" dur="2.5s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="140" cy="130" r="3" fill="#3b82f6">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="180" cy="150" r="3" fill="#a855f7">
+        <animate attributeName="opacity" values="1;0.5;1" dur="2.2s" repeatCount="indefinite" />
+      </circle>
+      <polygon points="150,40 145,50 155,50" fill="#fbbf24">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite" />
+      </polygon>
+    </svg>
+  </div>
+  <div id="snowContainer"></div>
+  <div class="snowman">
+    <div class="text-6xl">
+      <div class="relative">
+        <div class="text-center">⛄</div>
+        <div class="absolute -top-2 left-1/2 transform -translate-x-1/2 text-xs">🎩</div>
+      </div>
+    </div>
+  </div>
+  <div class="christmas-tree">
+    <div class="text-6xl relative">
+      <div class="tree-lights">🎄</div>
+      <div class="absolute top-0 left-1/2 transform -translate-x-1/2 text-yellow-300 text-xs">⭐</div>
+      <div class="absolute top-2 left-1/4 text-red-400 text-xs">🔴</div>
+      <div class="absolute top-3 right-1/4 text-yellow-400 text-xs">🟡</div>
+      <div class="absolute top-4 left-1/3 text-blue-400 text-xs">🔵</div>
+    </div>
+  </div>
+
+  <!-- Hidden audio element -->
+  <audio id="background-music" loop>
+    <source src="https://www.chosic.com/wp-content/uploads/2021/12/Jingle-Bells-3(chosic.com).mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Fireworks container for receiver view -->
+  <div id="fireworks-container" class="fixed inset-0 pointer-events-none z-50"></div>
+
+  <header class="bg-gradient-to-r from-red-900 to-red-800 text-white py-12 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <h1 class="text-3xl md:text-6xl font-bold christmas-font text-yellow-300 mb-4 drop-shadow-lg">Christmas Wishes
+      </h1>
+      <p class="text-base md:text-xl text-red-100 font-light px-2">Create & Share Personalized Holiday Greetings</p>
+    </div>
+    <div class="absolute top-4 right-4 flex gap-3">
+      <button id="snowToggle"
+        class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-all">
+        <i class="ri-snowy-line text-white text-xl"></i>
+      </button>
+      <button id="musicToggle"
+        class="w-12 h-12 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-all">
+        <i class="ri-music-line text-white text-xl"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 md:px-6 py-8 md:py-12">
+    <!-- Creator View -->
+    <div id="creator-view" class="creator-view active-view">
+      <!-- Language Selection -->
+      <section id="languageSection" class="mb-12">
+        <div class="flex justify-center mb-8">
+          <div class="bg-white rounded-lg shadow-lg p-2 flex gap-2">
+            <button
+              class="language-btn px-6 py-3 rounded !rounded-button font-medium transition-all whitespace-nowrap bg-secondary text-white"
+              data-lang="en">English</button>
+            <button
+              class="language-btn px-6 py-3 rounded !rounded-button font-medium transition-all whitespace-nowrap text-gray-600 hover:bg-gray-100"
+              data-lang="ta">தமிழ்</button>
+            <button
+              class="language-btn px-6 py-3 rounded !rounded-button font-medium transition-all whitespace-nowrap text-gray-600 hover:bg-gray-100"
+              data-lang="si">සිංහල</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card Design Selection -->
+      <section id="designSection" class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6 md:mb-8 px-2" id="designTitle">Choose
+          Your Christmas Card Design</h2>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+          <div
+            class="card-option cursor-pointer rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border-4 border-primary"
+            data-design="1">
+            <div class="card-preview h-48"
+              style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20Christmas%20tree%20with%20golden%20ornaments%20and%20warm%20lights%20in%20a%20cozy%20living%20room%20with%20fireplace%2C%20festive%20holiday%20atmosphere%2C%20red%20and%20green%20decorations%2C%20magical%20winter%20evening%2C%20high%20quality%20photography&width=400&height=300&seq=card1&orientation=landscape')">
+            </div>
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800" id="design1">Classic Christmas Tree</h3>
+            </div>
+          </div>
+          <div
+            class="card-option cursor-pointer rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border-4 border-transparent"
+            data-design="2">
+            <div class="card-preview h-48"
+              style="background-image: url('https://readdy.ai/api/search-image?query=Snowy%20winter%20landscape%20with%20pine%20trees%20covered%20in%20snow%2C%20peaceful%20Christmas%20scene%2C%20soft%20white%20snow%20falling%2C%20serene%20holiday%20atmosphere%2C%20beautiful%20winter%20wonderland%2C%20magical%20Christmas%20morning&width=400&height=300&seq=card2&orientation=landscape')">
+            </div>
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800" id="design2">Winter Wonderland</h3>
+            </div>
+          </div>
+          <div
+            class="card-option cursor-pointer rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border-4 border-transparent"
+            data-design="3">
+            <div class="card-preview h-48"
+              style="background-image: url('https://readdy.ai/api/search-image?query=Santa%20Claus%20with%20his%20reindeer%20and%20sleigh%20flying%20over%20snowy%20rooftops%20on%20Christmas%20Eve%2C%20magical%20night%20sky%20with%20stars%2C%20festive%20Christmas%20spirit%2C%20traditional%20holiday%20scene%2C%20warm%20glowing%20lights&width=400&height=300&seq=card3&orientation=landscape')">
+            </div>
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800" id="design3">Santa's Journey</h3>
+            </div>
+          </div>
+          <div
+            class="card-option cursor-pointer rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border-4 border-transparent"
+            data-design="4">
+            <div class="card-preview h-48"
+              style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20Christmas%20ornaments%20hanging%20from%20evergreen%20branches%2C%20red%20and%20gold%20baubles%20with%20ribbons%2C%20festive%20holiday%20decorations%2C%20elegant%20Christmas%20display%2C%20warm%20bokeh%20lights%20in%20background&width=400&height=300&seq=card4&orientation=landscape')">
+            </div>
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800" id="design4">Festive Ornaments</h3>
+            </div>
+          </div>
+          <div
+            class="card-option cursor-pointer rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border-4 border-transparent"
+            data-design="5">
+            <div class="card-preview h-48"
+              style="background-image: url('https://readdy.ai/api/search-image?query=Christmas%20fireplace%20with%20stockings%20and%20gifts%2C%20warm%20cozy%20atmosphere%2C%20festive%20decorations%2C%20traditional%20holiday%20scene%2C%20family%20gathering%20setting&width=400&height=300&seq=card5&orientation=landscape')">
+            </div>
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800" id="design5">Cozy Fireplace</h3>
+            </div>
+          </div>
+          <div
+            class="card-option cursor-pointer rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border-4 border-transparent"
+            data-design="6">
+            <div class="card-preview h-48"
+              style="background-image: url('https://readdy.ai/api/search-image?query=Christmas%20village%20with%20snow%20covered%20houses%2C%20twinkling%20lights%2C%20festive%20atmosphere%2C%20magical%20winter%20scene%2C%20holiday%20cheer&width=400&height=300&seq=card6&orientation=landscape')">
+            </div>
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800" id="design6">Christmas Village</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Personalize Message -->
+      <section id="messageSection" class="mb-12">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="text-3xl font-bold text-center text-gray-800 mb-8" id="personalizeTitle">Personalize Your Message
+          </h2>
+          <div class="bg-white rounded-lg shadow-lg p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label class="block text-gray-700 font-medium mb-2" id="toLabel">To:</label>
+                <input type="text" id="recipientName"
+                  class="w-full px-4 py-3 border border-gray-300 rounded !rounded-button focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  placeholder="Recipient's name">
+              </div>
+              <div>
+                <label class="block text-gray-700 font-medium mb-2" id="fromLabel">From:</label>
+                <input type="text" id="senderName"
+                  class="w-full px-4 py-3 border border-gray-300 rounded !rounded-button focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  placeholder="Your name">
+              </div>
+            </div>
+            <div>
+              <label class="block text-gray-700 font-medium mb-2" id="messageLabel">Your Christmas Message:</label>
+              <div class="flex gap-2 mb-4">
+                <textarea id="customMessage" rows="4"
+                  class="w-full px-4 py-3 border border-gray-300 rounded !rounded-button focus:ring-2 focus:ring-primary focus:border-transparent text-sm resize-none"
+                  placeholder="Write your personalized Christmas message..."></textarea>
+                <button id="randomWishBtn"
+                  class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-secondary text-white rounded !rounded-button hover:bg-green-600 transition-all shadow-lg">
+                  <i class="ri-shuffle-line text-xl"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Create Button -->
+      <section id="createSection" class="mb-12">
+        <div class="max-w-2xl mx-auto text-center">
+          <button id="createButton"
+            class="px-12 py-4 bg-primary text-white rounded !rounded-button font-bold text-lg hover:bg-red-700 transition-all shadow-lg"
+            id="createButtonText">
+            Create Your Christmas Card
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Preview/Share View -->
+    <div id="preview-view" class="preview-view">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8" id="previewTitle">Your Christmas Wish</h2>
+
+        <div class="card-container">
+          <div id="wish-card" class="card bg-white rounded-lg shadow-2xl overflow-hidden mx-auto">
+            <div class="relative h-full card-preview flex items-center justify-center">
+              <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+              <div class="relative z-10 text-center text-white p-8">
+                <div class="w-8 h-8 flex items-center justify-center mx-auto mb-4">
+                  <i class="ri-gift-line text-yellow-300 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold christmas-font text-yellow-300 mb-4" id="cardGreeting">Merry Christmas
+                </h3>
+                <div id="previewTo" class="text-lg mb-2"></div>
+                <div id="previewMessage" class="text-base mb-4 max-w-md mx-auto leading-relaxed"></div>
+                <div id="previewFrom" class="text-sm text-yellow-200"></div>
+                <div class="w-8 h-8 flex items-center justify-center mx-auto mt-4">
+                  <i class="ri-snowflake-line text-white text-2xl"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="thank-you text-center my-8">
+          <p class="text-xl text-green-600 font-bold" id="thankYouText">Your wish has been created! Share it with your
+            loved ones.</p>
+        </div>
+
+        <div class="share-options flex flex-col gap-3 md:gap-4 justify-center px-4 md:px-0 max-w-2xl mx-auto">
+          <button id="shareWhatsApp"
+            class="flex items-center justify-center gap-3 px-8 py-4 bg-green-500 text-white rounded !rounded-button font-medium hover:bg-green-600 transition-all shadow-lg whitespace-nowrap">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-whatsapp-line text-xl"></i>
+            </div>
+            <span id="whatsappText">Share on WhatsApp</span>
+          </button>
+          <button id="shareFacebook"
+            class="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white rounded !rounded-button font-medium hover:bg-blue-700 transition-all shadow-lg whitespace-nowrap">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-facebook-line text-xl"></i>
+            </div>
+            <span id="facebookText">Share on Facebook</span>
+          </button>
+          <button id="copyLink"
+            class="flex items-center justify-center gap-3 px-8 py-4 bg-purple-600 text-white rounded !rounded-button font-medium hover:bg-purple-700 transition-all shadow-lg whitespace-nowrap">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-link text-xl"></i>
+            </div>
+            <span id="copyLinkText">Copy Link</span>
+          </button>
+          <button id="downloadCard"
+            class="flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white rounded !rounded-button font-medium hover:bg-red-700 transition-all shadow-lg whitespace-nowrap">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-download-line text-xl"></i>
+            </div>
+            <span id="downloadText">Download as Image</span>
+          </button>
+          <button id="createAnotherBtn"
+            class="flex items-center justify-center gap-3 px-8 py-4 bg-gray-600 text-white rounded !rounded-button font-medium hover:bg-gray-700 transition-all shadow-lg whitespace-nowrap">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-add-line text-xl"></i>
+            </div>
+            <span id="createAnotherText">Create Another Wish</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Receiver View -->
+    <div id="receiver-view" class="receiver-view">
+      <div class="max-w-4xl mx-auto">
+        <h2 id="receiver-greeting-text" class="text-3xl font-bold text-center text-gray-800 mb-8">Merry Christmas!</h2>
+
+        <div class="card-container">
+          <div id="received-card" class="card bg-white rounded-lg shadow-2xl overflow-hidden mx-auto">
+            <div class="relative h-full card-preview flex items-center justify-center">
+              <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+              <div class="relative z-10 text-center text-white p-8">
+                <div class="w-8 h-8 flex items-center justify-center mx-auto mb-4">
+                  <i class="ri-gift-line text-yellow-300 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold christmas-font text-yellow-300 mb-4" id="receivedGreeting">Merry Christmas
+                </h3>
+                <div id="receivedTo" class="text-lg mb-2"></div>
+                <div id="receivedMessage" class="text-base mb-4 max-w-md mx-auto leading-relaxed"></div>
+                <div id="receivedFrom" class="text-sm text-yellow-200"></div>
+                <div class="w-8 h-8 flex items-center justify-center mx-auto mt-4">
+                  <i class="ri-snowflake-line text-white text-2xl"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="thank-you text-center my-8">
+          <p class="text-xl text-green-600 font-bold"><span id="sender-name-display">Someone</span> <span
+              id="sentYouText">has sent you Christmas wishes!</span></p>
+        </div>
+
+        <div class="share-options flex flex-col gap-3 md:gap-4 justify-center px-4 md:px-0 max-w-2xl mx-auto">
+          <button id="receiverWhatsappBtn"
+            class="flex items-center justify-center gap-3 px-8 py-4 bg-green-500 text-white rounded !rounded-button font-medium hover:bg-green-600 transition-all shadow-lg whitespace-nowrap">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-whatsapp-line text-xl"></i>
+            </div>
+            <span id="receiverWhatsappText">Share on WhatsApp</span>
+          </button>
+          <button id="receiverFacebookBtn"
+            class="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white rounded !rounded-button font-medium hover:bg-blue-700 transition-all shadow-lg whitespace-nowrap">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-facebook-line text-xl"></i>
+            </div>
+            <span id="receiverFacebookText">Share on Facebook</span>
+          </button>
+          <button id="sendBackBtn"
+            class="flex items-center justify-center gap-3 px-8 py-4 bg-blue-500 text-white rounded !rounded-button font-medium hover:bg-blue-600 transition-all shadow-lg whitespace-nowrap">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-send-plane-fill text-xl"></i>
+            </div>
+            <span id="sendBackText">Send Wishes Back</span>
+          </button>
+          <button id="createYourOwnBtn"
+            class="flex items-center justify-center gap-3 px-8 py-4 bg-secondary text-white rounded !rounded-button font-medium hover:bg-green-600 transition-all shadow-lg whitespace-nowrap">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-gift-fill text-xl"></i>
+            </div>
+            <span id="createYourOwnText">Create Your Own Wishes</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gradient-to-r from-red-900 to-red-800 text-white py-8">
+    <div class="container mx-auto px-6 text-center">
+      <div class="flex justify-center items-center gap-4 mb-4">
+        <div class="w-6 h-6 flex items-center justify-center">
+          <i class="ri-gift-line text-yellow-300 text-xl"></i>
+        </div>
+        <p class="text-red-100" id="footerText">Spread joy and happiness this Christmas season</p>
+        <div class="w-6 h-6 flex items-center justify-center">
+          <i class="ri-snowflake-line text-yellow-300 text-xl"></i>
+        </div>
+      </div>
+      <p class="text-sm text-red-200">&copy; 2024 Christmas Wishes. Made with ❤️ for the holidays</p>
+    </div>
+  </footer>
+
+  <script id="snowEffect">
+    let snowEnabled = true;
+    let snowInterval;
+    function createSnowflake() {
+      if (!snowEnabled) return;
+      const snowflake = document.createElement('div');
+      snowflake.className = 'snowflake';
+      snowflake.innerHTML = '❄';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+      snowflake.style.opacity = Math.random();
+      snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+      document.getElementById('snowContainer').appendChild(snowflake);
+      setTimeout(() => {
+        if (snowflake.parentNode) {
+          snowflake.parentNode.removeChild(snowflake);
+        }
+      }, 5000);
+    }
+    function startSnow() {
+      snowInterval = setInterval(createSnowflake, 100);
+    }
+    function stopSnow() {
+      clearInterval(snowInterval);
+      const snowflakes = document.querySelectorAll('.snowflake');
+      snowflakes.forEach(flake => flake.remove());
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      startSnow();
+      document.getElementById('snowToggle').addEventListener('click', function () {
+        snowEnabled = !snowEnabled;
+        const snowman = document.querySelector('.snowman');
+        const tree = document.querySelector('.christmas-tree');
+        if (snowEnabled) {
+          startSnow();
+          snowman.style.display = 'block';
+          tree.style.display = 'block';
+          this.querySelector('i').className = 'ri-snowy-line text-white text-xl';
+        } else {
+          stopSnow();
+          snowman.style.display = 'none';
+          tree.style.display = 'none';
+          this.querySelector('i').className = 'ri-snowy-fill text-white text-xl';
+        }
+      });
+    });
+  </script>
+
+  <script id="languageSystem">
+    const translations = {
+      en: {
+        // UI Texts
+        designTitle: "Choose Your Christmas Card Design",
+        design1: "Classic Christmas Tree",
+        design2: "Winter Wonderland",
+        design3: "Santa's Journey",
+        design4: "Festive Ornaments",
+        design5: "Cozy Fireplace",
+        design6: "Christmas Village",
+        personalizeTitle: "Personalize Your Message",
+        toLabel: "To:",
+        fromLabel: "From:",
+        messageLabel: "Your Christmas Message:",
+        recipientPlaceholder: "Recipient's name",
+        senderPlaceholder: "Your name",
+        messagePlaceholder: "Write your personalized Christmas message...",
+        createButtonText: "Create Your Christmas Card",
+        previewTitle: "Your Christmas Wish",
+        cardGreeting: "Merry Christmas",
+        thankYouText: "Your wish has been created! Share it with your loved ones.",
+        whatsappText: "Share on WhatsApp",
+        facebookText: "Share on Facebook",
+        copyLinkText: "Copy Link",
+        downloadText: "Download as Image",
+        createAnotherText: "Create Another Wish",
+        sentYouText: "has sent you Christmas wishes!",
+        receiverWhatsappText: "Share on WhatsApp",
+        receiverFacebookText: "Share on Facebook",
+        sendBackText: "Send Wishes Back",
+        createYourOwnText: "Create Your Own Wishes",
+        footerText: "Spread joy and happiness this Christmas season",
+
+        // Pre-written wishes
+        wishes: [
+          "Wishing you joy, peace, and happiness this Christmas season! May your holidays be filled with love, laughter, and magical moments with family and friends.",
+          "May the magic of Christmas fill every corner of your heart and home. Wishing you a season of blessings and joy!",
+          "Sending warm wishes for a Merry Christmas and a Happy New Year! May this festive season bring you happiness and prosperity.",
+          "May your Christmas be decorated with cheer and filled with love. Wishing you and your family a wonderful holiday season!",
+          "May the spirit of Christmas bring you peace, the gladness of Christmas give you hope, and the warmth of Christmas grant you love.",
+          "Wishing you a Christmas filled with good times, good cheer, and may the New Year bring all the best things to you and yours!",
+          "May the peace and joy of Christmas live in your heart all year long. Have a wonderful holiday season!",
+          "Sending you warm Christmas greetings and wishing you a New Year filled with hope and happiness.",
+          "May the miracle of Christmas fill your heart with warmth and love. Wishing you and your family a very Merry Christmas!",
+          "Thinking of you this Christmas and wishing you everything that brings you happiness. May your holidays be merry and bright!",
+          "May your home be filled with the joys of the season. Wishing you a Christmas that's merry and bright!",
+          "Sending you love and joy this Christmas. May your heart and home be filled with all the blessings of this wonderful season!",
+          "Wishing you a Christmas that's as special as you are! May your holidays be filled with warmth, love, and happiness.",
+          "May the magic of Christmas surround you with happiness and bring you all the things you've been hoping for.",
+          "Warmest thoughts and best wishes for a wonderful Christmas and a Happy New Year. May peace, love, and prosperity follow you always.",
+          "May the good times and treasures of the present become the golden memories of tomorrow. Wishing you lots of love, joy, and happiness.",
+          "Thinking of you with love at Christmas and wishing you everything that brings you happiness. Have a wonderful holiday season!",
+          "May the spirit of Christmas be with you throughout the New Year. Wishing you health, happiness, and peace in the coming year.",
+          "Sending you warm wishes for a Christmas filled with love, happiness, and prosperity. May all your dreams come true in the New Year!",
+          "May the wonder of Christmas remain in your heart throughout the coming year. Wishing you and your family a very Merry Christmas!"
+        ]
+      },
+      ta: {
+        // UI Texts
+        designTitle: "உங்கள் கிறிஸ்துமஸ் கார்ட் வடிவமைப்பைத் தேர்ந்தெடுக்கவும்",
+        design1: "கிளாசிக் கிறிஸ்துமஸ் மரம்",
+        design2: "குளிர்கால அதிசயம்",
+        design3: "சாண்டாவின் பயணம்",
+        design4: "விழாக்கோலங்கள்",
+        design5: "வெப்பமான நெருப்பிடம்",
+        design6: "கிறிஸ்துமஸ் கிராமம்",
+        personalizeTitle: "உங்கள் செய்தியை தனிப்பயனாக்குங்கள்",
+        toLabel: "இலக்கு:",
+        fromLabel: "இருந்து:",
+        messageLabel: "உங்கள் கிறிஸ்துமஸ் செய்தி:",
+        recipientPlaceholder: "பெறுநரின் பெயர்",
+        senderPlaceholder: "உங்கள் பெயர்",
+        messagePlaceholder: "உங்கள் தனிப்பயனாக்கப்பட்ட கிறிஸ்துமஸ் செய்தியை எழுதுங்கள்...",
+        createButtonText: "உங்கள் கிறிஸ்துமஸ் கார்டை உருவாக்கவும்",
+        previewTitle: "உங்கள் கிறிஸ்துமஸ் வாழ்த்து",
+        cardGreeting: "மெர்ரி கிறிஸ்துமஸ்",
+        thankYouText: "உங்கள் வாழ்த்து உருவாக்கப்பட்டது! அதை உங்கள் அன்புக்குரியவர்களுடன் பகிர்ந்து கொள்ளுங்கள்.",
+        whatsappText: "வாட்ஸ்அப்பில் பகிரவும்",
+        facebookText: "பேஸ்புக்கில் பகிரவும்",
+        copyLinkText: "இணைப்பை நகலெடுக்கவும்",
+        downloadText: "படமாக பதிவிறக்கவும்",
+        createAnotherText: "மற்றொரு வாழ்த்தை உருவாக்கவும்",
+        sentYouText: "உங்களுக்கு கிறிஸ்துமஸ் வாழ்த்துக்களை அனுப்பியுள்ளார்!",
+        receiverWhatsappText: "வாட்ஸ்அப்பில் பகிரவும்",
+        receiverFacebookText: "பேஸ்புக்கில் பகிரவும்",
+        sendBackText: "வாழ்த்துக்களை திருப்பி அனுப்பவும்",
+        createYourOwnText: "உங்கள் சொந்த வாழ்த்துக்களை உருவாக்கவும்",
+        footerText: "இந்த கிறிஸ்துமஸ் பருவத்தில் மகிழ்ச்சியையும் மனநிறைவையும் பரப்புங்கள்",
+
+        // Pre-written wishes
+        wishes: [
+          "இந்த கிறிஸ்துமஸ் பருவத்தில் மகிழ்ச்சி, சமாதானம் மற்றும் மனநிறைவு உங்களுக்கு கிடைக்க வாழ்த்துக்கள்! உங்கள் விடுமுறை நாட்கள் குடும்பத்தினர் மற்றும் நண்பர்களுடன் காதல், சிரிப்பு மற்றும் மந்திர தருணங்களால் நிரம்பியிருக்கட்டும்.",
+          "கிறிஸ்துமஸின் மாயம் உங்கள் இதயத்தின் ஒவ்வொரு மூலையிலும் நிரம்பட்டும். உங்களுக்கு ஆசீர்வாதங்கள் மற்றும் மகிழ்ச்சி நிறைந்த பருவம் கிடைக்க வாழ்த்துக்கள்!",
+          "மெர்ரி கிறிஸ்துமஸ் மற்றும் இனிய புத்தாண்டு வாழ்த்துக்கள்! இந்த விழாக் காலம் உங்களுக்கு மகிழ்ச்சியையும் வளத்தையும் கொண்டு வரட்டும்.",
+          "உங்கள் கிறிஸ்துமஸ் மகிழ்ச்சியால் அலங்கரிக்கப்பட்டு காதலால் நிரம்பியிருக்கட்டும். உங்களுக்கும் உங்கள் குடும்பத்திற்கும் அற்புதமான விடுமுறை காலம் கிடைக்க வாழ்த்துக்கள்!",
+          "கிறிஸ்துமஸின் ஆவி உங்களுக்கு சமாதானத்தையும், கிறிஸ்துமஸின் மகிழ்ச்சி உங்களுக்கு நம்பிக்கையையும், கிறிஸ்துமஸின் வெப்பம் உங்களுக்கு காதலையும் அளிக்கட்டும்.",
+          "நல்ல நேரங்கள், நல்ல மகிழ்ச்சி நிறைந்த கிறிஸ்துமஸ் உங்களுக்கு கிடைக்க வாழ்த்துக்கள், மேலும் புத்தாண்டு உங்களுக்கும் உங்கள் அன்புக்குரியவர்களுக்கும் சிறந்த விஷயங்களைக் கொண்டு வரட்டும்!",
+          "கிறிஸ்துமஸின் சமாதானமும் மகிழ்ச்சியும் வருடம் முழுவதும் உங்கள் இதயத்தில் வாழட்டும். அற்புதமான விடுமுறை காலம் அனுபவிக்கவும்!",
+          "உங்களுக்கு வெப்பமான கிறிஸ்துமஸ் வாழ்த்துக்களை அனுப்பி, நம்பிக்கை மற்றும் மகிழ்ச்சி நிறைந்த புத்தாண்டு கிடைக்க வாழ்த்துக்கள்.",
+          "கிறிஸ்துமஸின் அதிசயம் உங்கள் இதயத்தை வெப்பத்தாலும் காதலாலும் நிரப்பட்டும். உங்களுக்கும் உங்கள் குடும்பத்திற்கும் மிகவும் மெர்ரி கிறிஸ்துமஸ் வாழ்த்துக்கள்!",
+          "இந்த கிறிஸ்துமஸில் உங்களை நினைத்து, உங்களுக்கு மகிழ்ச்சியைத் தரும் அனைத்தையும் வாழ்த்துகிறேன். உங்கள் விடுமுறை நாட்கள் மகிழ்ச்சியாகவும் பிரகாசமாகவும் இருக்கட்டும்!",
+          "பருவத்தின் மகிழ்ச்சிகள் உங்கள் வீட்டை நிரப்பட்டும். மகிழ்ச்சியான மற்றும் பிரகாசமான கிறிஸ்துமஸ் உங்களுக்கு கிடைக்க வாழ்த்துக்கள்!",
+          "இந்த கிறிஸ்துமஸில் உங்களுக்கு அன்பையும் மகிழ்ச்சியையும் அனுப்புகிறேன். இந்த அற்புதமான பருவத்தின் அனைத்து ஆசீர்வாதங்களும் உங்கள் இதயத்திலும் வீட்டிலும் நிரம்பட்டும்!",
+          "நீங்கள் எவ்வளவு சிறப்பாக இருக்கிறீர்களோ அந்த அளவு சிறப்பான கிறிஸ்துமஸ் உங்களுக்கு கிடைக்க வாழ்த்துக்கள்! உங்கள் விடுமுறை நாட்கள் வெப்பம், காதல் மற்றும் மகிழ்ச்சியால் நிரம்பியிருக்கட்டும்.",
+          "கிறிஸ்துமஸின் மாயம் உங்களை மகிழ்ச்சியால் சூழ்ந்து, நீங்கள் எதிர்பார்த்த அனைத்தையும் உங்களுக்குக் கொண்டு வரட்டும்.",
+          "அற்புதமான கிறிஸ்துமஸ் மற்றும் இனிய புத்தாண்டுக்கான வெப்பமான எண்ணங்கள் மற்றும் சிறந்த வாழ்த்துக்கள். சமாதானம், காதல் மற்றும் வளம் எப்போதும் உங்களைப் பின்தொடரட்டும்.",
+          "தற்போதைய நல்ல நேரங்களும் பொக்கிஷங்களும் நாளைய பொன் நினைவுகளாக மாறட்டும். நிறைய அன்பு, மகிழ்ச்சி மற்றும் மனநிறைவு உங்களுக்கு கிடைக்க வாழ்த்துக்கள்.",
+          "கிறிஸ்துமஸில் அன்புடன் உங்களை நினைத்து, உங்களுக்கு மகிழ்ச்சியைத் தரும் அனைத்தையும் வாழ்த்துகிறேன். அற்புதமான விடுமுறை காலம் அனுபவிக்கவும்!",
+          "கிறிஸ்துமஸின் ஆவி புத்தாண்டு முழுவதும் உங்களுடன் இருக்கட்டும். வரும் ஆண்டில் ஆரோக்கியம், மகிழ்ச்சி மற்றும் சமாதானம் உங்களுக்கு கிடைக்க வாழ்த்துக்கள்.",
+          "காதல், மகிழ்ச்சி மற்றும் வளம் நிறைந்த கிறிஸ்துமஸ் உங்களுக்கு கிடைக்க வெப்பமான வாழ்த்துக்களை அனுப்புகிறேன். புத்தாண்டில் உங்கள் அனைத்து கனவுகளும் நனவாகட்டும்!",
+          "கிறிஸ்துமஸின் அதிசயம் வரும் ஆண்டு முழுவதும் உங்கள் இதயத்தில் இருக்கட்டும். உங்களுக்கும் உங்கள் குடும்பத்திற்கும் மிகவும் மெர்ரி கிறிஸ்துமஸ் வாழ்த்துக்கள்!"
+        ]
+      },
+      si: {
+        // UI Texts
+        designTitle: "ඔබගේ නත්තල් කාඩ්පත් නිර්මාණය තෝරන්න",
+        design1: "සාම්ප්‍රදායික නත්තල් ගස",
+        design2: "හිම අලංකාර ලෝකය",
+        design3: "සාන්ත ක්ලෝස්ගේ ගමන",
+        design4: "උත්සව අලංකාර",
+        design5: "උණුසුම් ගින්නක කඳුළු",
+        design6: "නත්තල් ගම්මානය",
+        personalizeTitle: "ඔබගේ පණිවිඩය අභිරුචිකරණය කරන්න",
+        toLabel: "ලබන්නා:",
+        fromLabel: "යවන්නා:",
+        messageLabel: "ඔබගේ නත්තල් පණිවිඩය:",
+        recipientPlaceholder: "ලබන්නාගේ නම",
+        senderPlaceholder: "ඔබගේ නම",
+        messagePlaceholder: "ඔබගේ අභිරුචි නත්තල් පණිවිඩය ලියන්න...",
+        createButtonText: "ඔබගේ නත්තල් කාඩ්පත් නිර්මාණය කරන්න",
+        previewTitle: "ඔබගේ නත්තල් අශිර්වාද",
+        cardGreeting: "සුභ නත්තලක් වේවා!",
+        thankYouText: "ඔබගේ අශිර්වාදය නිර්මාණය කර ඇත! එය ඔබගේ ආදරණීයයන් සමඟ බෙදාගන්න.",
+        whatsappText: "WhatsApp හි බෙදාගන්න",
+        facebookText: "Facebook හි බෙදාගන්න",
+        copyLinkText: "සබැඳිය පිටපත් කරන්න",
+        downloadText: "පින්තූරයක් ලෙස බාගන්න",
+        createAnotherText: "තවත් අශිර්වාදයක් නිර්මාණය කරන්න",
+        sentYouText: "ඔබට නත්තල් අශිර්වාද යවා ඇත!",
+        receiverWhatsappText: "WhatsApp හි බෙදාගන්න",
+        receiverFacebookText: "Facebook හි බෙදාගන්න",
+        sendBackText: "අශිර්වාද ආපසු යවන්න",
+        createYourOwnText: "ඔබගේම අශිර්වාද නිර්මාණය කරන්න",
+        footerText: "මෙම නත්තල් ඍතුවේදී සතුට සහ සන්තෝෂය පතුරුවන්න",
+
+        // Pre-written wishes
+        wishes: [
+          "මෙම නත්තල් ඍතුවේදී ඔබට සතුට, සාමය සහ සන්තෝෂය ලැබේවා! ඔබගේ නිවාඩු දින පවුලේ සහ මිතුරන් සමඟ ආදරය, සිනහව සහ මායාමය මොහොතුවලින් පිරී තිබේවා!",
+          "නත්තල් මායාව ඔබේ හදවතේ සෑම කෙළවරකම පිරේවා! ඔබට ආශිර්වාද සහ සතුටින් යුත් ඍතුවක් ලැබේවා!",
+          "සුභ නත්තල් සහ සුභ නව වසරක් වේවා! මෙම උත්සව කාලය ඔබට සතුට සහ සමෘද්ධිය ගෙන එනු ඇතැයි ප්‍රාර්ථනා කරමු.",
+          "ඔබේ නත්තල් සතුටින් අලංකාර වී ආදරයෙන් පිරී තිබේවා! ඔබට සහ ඔබේ පවුලට අපූරු නිවාඩු ඍතුවක් ලැබේවා!",
+          "නත්තල් ආත්මය ඔබට සාමය ගෙන දෙනු ඇත, නත්තල් සතුට ඔබට බලාපොරොත්තුව ලබා දෙනු ඇත, නත්තල් උණුසුම ඔබට ආදරය ලබා දෙනු ඇත.",
+          "හොඳ වේලා, හොඳ සතුටින් පිරුණු නත්තලක් ඔබට ලැබේවා, නව වසර ඔබට සහ ඔබේ ආදරණීයයන්ට සියලුම හොඳම දේවල් ගෙන එනු ඇතැයි ප්‍රාර්ථනා කරමු!",
+          "නත්තල් සාමය සහ සතුට මුළු වසර පුරාම ඔබේ හදවතේ වාසය කරනු ඇත. අපූරු නිවාඩු ඍතුවක් භුක්ති විඳින්න!",
+          "ඔබට උණුසුම් නත්තල් අශිර්වාද යවමින්, බලාපොරොත්තුවෙන් සහ සතුටින් පිරුණු නව වසරක් ඔබට ලැබේවා!",
+          "නත්තල් අද්භූතය ඔබේ හදවත උණුසුමෙන් සහ ආදරයෙන් පුරවනු ඇත. ඔබට සහ ඔබේ පවුලට ඉතා සුභ නත්තලක් වේවා!",
+          "මෙම නත්තල් ඍතුවේදී ඔබව සිහිකරමින්, ඔබට සතුට ගෙන දෙන සියල්ල ඔබට ලැබේවා! ඔබේ නිවාඩු දින සතුටින් සහ ආලෝකයෙන් පිරී තිබේවා!",
+          "ඍතුවේ සතුට ඔබේ නිවස පුරවනු ඇත. සතුටින් සහ ආලෝකයෙන් පිරුණු නත්තලක් ඔබට ලැබේවා!",
+          "මෙම නත්තල් ඍතුවේදී ඔබට ආදරය සහ සතුට යවමින්. මෙම අපූරු ඍතුවේ සියලුම ආශිර්වාද ඔබේ හදවතේ සහ නිවසේ පිරේවා!",
+          "ඔබ තරම්ම විශේෂ නත්තලක් ඔබට ලැබේවා! ඔබේ නිවාඩු දින උණුසුම, ආදරය සහ සතුටින් පිරී තිබේවා.",
+          "නත්තල් මායාව ඔබව සතුටින් වට කර ඔබ බලාපොරොත්තු වූ සියල්ල ඔබට ගෙන එනු ඇත.",
+          "අපූරු නත්තල් සහ සුභ නව වසරක් සඳහා උණුසුම් චින්තන සහ හොඳම අශිර්වාද. සාමය, ආදරය සහ සමෘද්ධිය සැමවිටම ඔබව අනුගමනය කරනු ඇත.",
+          "වර්තමානයේ හොඳ වේලා සහ නිධන් හෙට දිනයේ රන්වන් මතකයන් බවට පත්වේවා. බොහෝ ආදරය, සතුට සහ සන්තෝෂය ඔබට ලැබේවා.",
+          "නත්තල් ඍතුවේදී ආදරයෙන් ඔබව සිහිකරමින්, ඔබට සතුට ගෙන දෙන සියල්ල ඔබට ලැබේවා. අපූරු නිවාඩු ඍතුවක් භුක්ති විඳින්න!",
+          "නත්තල් ආත්මය නව වසර පුරාම ඔබ සමඟ තිබේවා. ඉදිරි වසරේදී සෞඛ්‍යය, සතුට සහ සාමය ඔබට ලැබේවා.",
+          "ආදරය, සතුට සහ සමෘද්ධියෙන් පිරුණු නත්තලක් ඔබට ලැබේවා! නව වසරේදී ඔබේ සියලුම සිහින සැබෑ වේවා!",
+          "නත්තල් අද්භූතය ඉදිරි වසර පුරාම ඔබේ හදවතේ රැඳී තිබේවා. ඔබට සහ ඔබේ පවුලට ඉතා සුභ නත්තලක් වේවා!"
+        ]
+      }
+    };
+
+    let currentLanguage = 'en';
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const languageButtons = document.querySelectorAll('.language-btn');
+
+      languageButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          languageButtons.forEach(b => {
+            b.classList.remove('bg-secondary', 'text-white');
+            b.classList.add('text-gray-600', 'hover:bg-gray-100');
+          });
+          this.classList.add('bg-secondary', 'text-white');
+          this.classList.remove('text-gray-600', 'hover:bg-gray-100');
+          currentLanguage = this.dataset.lang;
+          updateLanguage();
+        });
+      });
+    });
+
+    function updateLanguage() {
+      const lang = translations[currentLanguage];
+
+      // Update UI texts
+      document.getElementById('designTitle').textContent = lang.designTitle;
+      document.getElementById('design1').textContent = lang.design1;
+      document.getElementById('design2').textContent = lang.design2;
+      document.getElementById('design3').textContent = lang.design3;
+      document.getElementById('design4').textContent = lang.design4;
+      document.getElementById('design5').textContent = lang.design5;
+      document.getElementById('design6').textContent = lang.design6;
+      document.getElementById('personalizeTitle').textContent = lang.personalizeTitle;
+      document.getElementById('toLabel').textContent = lang.toLabel;
+      document.getElementById('fromLabel').textContent = lang.fromLabel;
+      document.getElementById('messageLabel').textContent = lang.messageLabel;
+      document.getElementById('recipientName').placeholder = lang.recipientPlaceholder;
+      document.getElementById('senderName').placeholder = lang.senderPlaceholder;
+      document.getElementById('customMessage').placeholder = lang.messagePlaceholder;
+      document.getElementById('createButtonText').textContent = lang.createButtonText;
+      document.getElementById('previewTitle').textContent = lang.previewTitle;
+      document.getElementById('cardGreeting').textContent = lang.cardGreeting;
+      document.getElementById('thankYouText').textContent = lang.thankYouText;
+      document.getElementById('whatsappText').textContent = lang.whatsappText;
+      document.getElementById('facebookText').textContent = lang.facebookText;
+      document.getElementById('copyLinkText').textContent = lang.copyLinkText;
+      document.getElementById('downloadText').textContent = lang.downloadText;
+      document.getElementById('createAnotherText').textContent = lang.createAnotherText;
+      document.getElementById('sentYouText').textContent = lang.sentYouText;
+      document.getElementById('receiverWhatsappText').textContent = lang.receiverWhatsappText;
+      document.getElementById('receiverFacebookText').textContent = lang.receiverFacebookText;
+      document.getElementById('sendBackText').textContent = lang.sendBackText;
+      document.getElementById('createYourOwnText').textContent = lang.createYourOwnText;
+      document.getElementById('footerText').textContent = lang.footerText;
+
+      // Update card greeting based on language
+      const greetingText = document.getElementById('cardGreeting');
+      const receivedGreeting = document.getElementById('receivedGreeting');
+      const receiverGreetingText = document.getElementById('receiver-greeting-text');
+
+      if (currentLanguage === 'en') {
+        greetingText.textContent = 'Merry Christmas';
+        receivedGreeting.textContent = 'Merry Christmas';
+        receiverGreetingText.textContent = 'Merry Christmas!';
+      } else if (currentLanguage === 'ta') {
+        greetingText.textContent = 'மெர்ரி கிறிஸ்துமஸ்';
+        receivedGreeting.textContent = 'மெர்ரி கிறிஸ்துமஸ்';
+        receiverGreetingText.textContent = 'மெர்ரி கிறிஸ்துமஸ்!';
+      } else if (currentLanguage === 'si') {
+        greetingText.textContent = 'සුභ නත්තලක් වේවා!';
+        receivedGreeting.textContent = 'සුභ නත්තලක් වේවා!';
+        receiverGreetingText.textContent = 'සුභ නත්තලක් වේවා!';
+      }
+
+      // Update font classes based on language
+      const textElements = document.querySelectorAll('#previewTo, #previewMessage, #previewFrom, #receivedTo, #receivedMessage, #receivedFrom');
+      textElements.forEach(el => {
+        el.classList.remove('sinhala-font', 'tamil-font');
+        if (currentLanguage === 'si') {
+          el.classList.add('sinhala-font');
+        } else if (currentLanguage === 'ta') {
+          el.classList.add('tamil-font');
+        }
+      });
+
+      // Update preview if we're in preview view
+      if (document.getElementById('preview-view').classList.contains('active-view')) {
+        updatePreview();
+      }
+    }
+  </script>
+
+  <script id="cardCustomization">
+    const cardDesigns = {
+      1: 'https://corsproxy.io/?' + encodeURIComponent('https://readdy.ai/api/search-image?query=Beautiful%20Christmas%20tree%20with%20golden%20ornaments%20and%20warm%20lights%20in%20a%20cozy%20living%20room%20with%20fireplace%2C%20festive%20holiday%20atmosphere%2C%20red%20and%20green%20decorations%2C%20magical%20winter%20evening%2C%20high%20quality%20photography&width=600&height=400&seq=preview1&orientation=landscape'),
+      2: 'https://corsproxy.io/?' + encodeURIComponent('https://readdy.ai/api/search-image?query=Snowy%20winter%20landscape%20with%20pine%20trees%20covered%20in%20snow%2C%20peaceful%20Christmas%20scene%2C%20soft%20white%20snow%20falling%2C%20serene%20holiday%20atmosphere%2C%20beautiful%20winter%20wonderland%2C%20magical%20Christmas%20morning&width=600&height=400&seq=preview2&orientation=landscape'),
+      3: 'https://corsproxy.io/?' + encodeURIComponent('https://readdy.ai/api/search-image?query=Santa%20Claus%20with%20his%20reindeer%20and%20sleigh%20flying%20over%20snowy%20rooftops%20on%20Christmas%20Eve%2C%20magical%20night%20sky%20with%20stars%2C%20festive%20Christmas%20spirit%2C%20traditional%20holiday%20scene%2C%20warm%20glowing%20lights&width=600&height=400&seq=preview3&orientation=landscape'),
+      4: 'https://corsproxy.io/?' + encodeURIComponent('https://readdy.ai/api/search-image?query=Beautiful%20Christmas%20ornaments%20hanging%20from%20evergreen%20branches%2C%20red%20and%20gold%20baubles%20with%20ribbons%2C%20festive%20holiday%20decorations%2C%20elegant%20Christmas%20display%2C%20warm%20bokeh%20lights%20in%20background&width=600&height=400&seq=preview4&orientation=landscape'),
+      5: 'https://corsproxy.io/?' + encodeURIComponent('https://readdy.ai/api/search-image?query=Christmas%20fireplace%20with%20stockings%20and%20gifts%2C%20warm%20cozy%20atmosphere%2C%20festive%20decorations%2C%20traditional%20holiday%20scene%2C%20family%20gathering%20setting&width=600&height=400&seq=preview5&orientation=landscape'),
+      6: 'https://corsproxy.io/?' + encodeURIComponent('https://readdy.ai/api/search-image?query=Christmas%20village%20with%20snow%20covered%20houses%2C%20twinkling%20lights%2C%20festive%20atmosphere%2C%20magical%20winter%20scene%2C%20holiday%20cheer&width=600&height=400&seq=preview6&orientation=landscape')
+    };
+
+    let selectedDesign = 1;
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const cardOptions = document.querySelectorAll('.card-option');
+      const recipientInput = document.getElementById('recipientName');
+      const senderInput = document.getElementById('senderName');
+      const messageInput = document.getElementById('customMessage');
+      const randomWishBtn = document.getElementById('randomWishBtn');
+
+      cardOptions.forEach(option => {
+        option.addEventListener('click', function () {
+          cardOptions.forEach(opt => {
+            opt.classList.remove('border-primary');
+            opt.classList.add('border-transparent');
+          });
+          this.classList.add('border-primary');
+          this.classList.remove('border-transparent');
+          selectedDesign = parseInt(this.dataset.design);
+          updatePreview();
+        });
+      });
+
+      // Random wish button functionality
+      randomWishBtn.addEventListener('click', function () {
+        const randomIndex = Math.floor(Math.random() * translations[currentLanguage].wishes.length);
+        document.getElementById('customMessage').value = translations[currentLanguage].wishes[randomIndex];
+        updatePreview();
+      });
+
+      recipientInput.addEventListener('input', updatePreview);
+      senderInput.addEventListener('input', updatePreview);
+      messageInput.addEventListener('input', updatePreview);
+
+      updatePreview();
+    });
+
+    function updatePreview() {
+      const recipient = document.getElementById('recipientName').value;
+      const sender = document.getElementById('senderName').value;
+      const message = document.getElementById('customMessage').value;
+      const previewCard = document.querySelector('#wish-card .card-preview');
+
+      previewCard.style.backgroundImage = `url('${cardDesigns[selectedDesign]}')`;
+
+      // Update language-specific text
+      const toText = currentLanguage === 'en' ? 'Dear' :
+        currentLanguage === 'ta' ? 'அன்புள்ள' :
+          'ප්රියතම';
+
+      document.getElementById('previewTo').textContent = recipient ? `${toText} ${recipient},` : '';
+      document.getElementById('previewMessage').textContent = message || translations[currentLanguage].wishes[0];
+      document.getElementById('previewFrom').textContent = sender ? `${currentLanguage === 'en' ? 'From' : currentLanguage === 'ta' ? 'இருந்து' : 'වෙතින්'} ${sender}` : '';
+
+      // Apply language-specific font
+      const textElements = document.querySelectorAll('#previewTo, #previewMessage, #previewFrom');
+      textElements.forEach(el => {
+        el.classList.remove('sinhala-font', 'tamil-font');
+        if (currentLanguage === 'si') {
+          el.classList.add('sinhala-font');
+        } else if (currentLanguage === 'ta') {
+          el.classList.add('tamil-font');
+        }
+      });
+    }
+  </script>
+
+  <script id="threeViewSystem">
+    // "Database" to store wishes
+    const wishDatabase = {
+      wishes: JSON.parse(localStorage.getItem('christmasWishes')) || {},
+
+      saveWish: function (wish) {
+        const id = 'wish_' + Date.now();
+        this.wishes[id] = wish;
+        localStorage.setItem('christmasWishes', JSON.stringify(this.wishes));
+        return id;
+      },
+
+      getWish: function (id) {
+        return this.wishes[id];
+      }
+    };
+
+    let currentWishId = null;
+    let musicEnabled = false;
+
+    // Show creator view
+    function showCreatorView() {
+      document.getElementById('creator-view').classList.add('active-view');
+      document.getElementById('preview-view').classList.remove('active-view');
+      document.getElementById('receiver-view').classList.remove('active-view');
+      stopConfetti();
+      window.history.pushState({}, document.title, window.location.pathname);
+    }
+
+    // Show preview view
+    function showPreviewView() {
+      document.getElementById('creator-view').classList.remove('active-view');
+      document.getElementById('preview-view').classList.add('active-view');
+      document.getElementById('receiver-view').classList.remove('active-view');
+      updatePreview();
+    }
+
+    // Show receiver view
+    function showReceiverView(wish) {
+      document.getElementById('creator-view').classList.remove('active-view');
+      document.getElementById('preview-view').classList.remove('active-view');
+      document.getElementById('receiver-view').classList.add('active-view');
+
+      // Update receiver view with wish data
+      const toText = wish.lang === 'en' ? 'Dear' :
+        wish.lang === 'ta' ? 'அன்புள்ள' :
+          'ප්රියතම';
+
+      document.getElementById('receivedTo').textContent = wish.recipient ? `${toText} ${wish.recipient},` : '';
+      document.getElementById('receivedMessage').textContent = wish.message || translations[wish.lang].wishes[0];
+      document.getElementById('receivedFrom').textContent = wish.sender ? `${wish.lang === 'en' ? 'From' : wish.lang === 'ta' ? 'இருந்து' : 'වෙතින්'} ${wish.sender}` : '';
+      document.getElementById('sender-name-display').textContent = wish.sender || 'Someone';
+
+      // Update card background
+      const receivedCard = document.querySelector('#received-card .card-preview');
+      receivedCard.style.backgroundImage = `url('${cardDesigns[wish.design]}')`;
+
+      // Update greeting based on language
+      const receivedGreeting = document.getElementById('receivedGreeting');
+      const receiverGreetingText = document.getElementById('receiver-greeting-text');
+
+      if (wish.lang === 'en') {
+        receivedGreeting.textContent = 'Merry Christmas';
+        receiverGreetingText.textContent = 'Merry Christmas!';
+      } else if (wish.lang === 'ta') {
+        receivedGreeting.textContent = 'மெர்ரி கிறிஸ்துமஸ்';
+        receiverGreetingText.textContent = 'மெர்ரி கிறிஸ்துமஸ்!';
+      } else if (wish.lang === 'si') {
+        receivedGreeting.textContent = 'සුභ නත්තලක් වේවා!';
+        receiverGreetingText.textContent = 'සුභ නත්තලක් වේවා!';
+      }
+
+      // Apply language-specific font
+      const textElements = document.querySelectorAll('#receivedTo, #receivedMessage, #receivedFrom');
+      textElements.forEach(el => {
+        el.classList.remove('sinhala-font', 'tamil-font');
+        if (wish.lang === 'si') {
+          el.classList.add('sinhala-font');
+        } else if (wish.lang === 'ta') {
+          el.classList.add('tamil-font');
+        }
+      });
+
+      // Create effects
+      createFireworks();
+      startConfetti();
+      playCelebrationSound();
+
+      // Start background music for receiver if enabled
+      if (musicEnabled) {
+        playBackgroundMusic();
+      }
+    }
+
+    // Generate share URL
+    function generateShareUrl(wishId) {
+      return `${window.location.origin}${window.location.pathname}?wish=${wishId}`;
+    }
+
+    // Create fireworks effect
+    function createFireworks() {
+      const fireworksContainer = document.getElementById('fireworks-container');
+      // Clear existing fireworks
+      fireworksContainer.innerHTML = '';
+
+      // Create multiple fireworks
+      for (let i = 0; i < 25; i++) {
+        setTimeout(() => {
+          const firework = document.createElement('div');
+          firework.className = 'firework';
+          firework.style.left = `${Math.random() * 100}%`;
+          firework.style.top = `${Math.random() * 50}%`;
+          firework.style.backgroundColor = getRandomColor();
+          firework.style.boxShadow = `0 0 20px 5px ${getRandomColor()}`;
+          firework.style.setProperty('--x', `${(Math.random() - 0.5) * 150}px`);
+          firework.style.setProperty('--y', `${(Math.random() - 0.5) * 150}px`);
+          fireworksContainer.appendChild(firework);
+
+          // Remove after animation
+          setTimeout(() => {
+            firework.remove();
+          }, 1000);
+        }, i * 300);
+      }
+    }
+
+    // Confetti effect
+    let confettiInterval;
+    function startConfetti() {
+      clearInterval(confettiInterval);
+      confettiInterval = setInterval(createConfetti, 150);
+    }
+
+    function stopConfetti() {
+      clearInterval(confettiInterval);
+    }
+
+    function createConfetti() {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = `${Math.random() * 100}%`;
+      confetti.style.backgroundColor = getRandomColor();
+      confetti.style.width = `${Math.random() * 20 + 10}px`;
+      confetti.style.height = `${Math.random() * 20 + 10}px`;
+      confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+      document.body.appendChild(confetti);
+
+      // Remove after animation
+      setTimeout(() => {
+        confetti.remove();
+      }, 5000);
+    }
+
+    // Play celebration sound
+    function playCelebrationSound() {
+      // Short magic chime sound instead of long song
+      const sound = new Audio('https://assets.mixkit.co/active_storage/sfx/2003/2003-preview.mp3');
+      sound.volume = 0.5;
+      sound.play().catch(e => console.log("Celebration sound play failed:", e));
+    }
+
+    function getRandomColor() {
+      const colors = ['#ff6b6b', '#feca57', '#1dd1a1', '#54a0ff', '#5f27cd', '#ff9ff3', '#00d2d3'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // Initialize background music
+    const backgroundMusic = document.getElementById('background-music');
+
+    function playBackgroundMusic() {
+      backgroundMusic.volume = 0.3;
+      backgroundMusic.play().catch(e => {
+        console.log("Background music play failed:", e);
+      });
+    }
+
+    function pauseBackgroundMusic() {
+      backgroundMusic.pause();
+    }
+
+    // Initialize from URL parameters
+    function initFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const wishId = urlParams.get('wish');
+
+      if (wishId) {
+        // This is a receiver viewing a shared wish
+        const wish = wishDatabase.getWish(wishId);
+        if (wish) {
+          showReceiverView(wish);
+          return;
+        }
+      }
+
+      // Show creator view by default
+      showCreatorView();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const createButton = document.getElementById('createButton');
+      const createAnotherBtn = document.getElementById('createAnotherBtn');
+      const createYourOwnBtn = document.getElementById('createYourOwnBtn');
+      const sendBackBtn = document.getElementById('sendBackBtn');
+
+      createButton.addEventListener('click', function () {
+        const recipient = document.getElementById('recipientName').value.trim();
+        const sender = document.getElementById('senderName').value.trim();
+        const message = document.getElementById('customMessage').value.trim();
+
+        if (!recipient) {
+          alert(currentLanguage === 'en' ? 'Please enter the recipient\'s name' :
+            currentLanguage === 'ta' ? 'தயவுசெய்து பெறுநரின் பெயரை உள்ளிடவும்' :
+              'කරුණාකර ලබන්නාගේ නම ඇතුළත් කරන්න');
+          return;
+        }
+
+        // Create wish object
+        const wish = {
+          recipient,
+          sender,
+          message,
+          design: selectedDesign,
+          lang: currentLanguage,
+          createdAt: new Date().toISOString()
+        };
+
+        // Save to "database"
+        currentWishId = wishDatabase.saveWish(wish);
+
+        // Show preview view
+        showPreviewView();
+
+        // Play celebration sound only (no background music)
+        playCelebrationSound();
+      });
+
+      createAnotherBtn.addEventListener('click', function () {
+        // Reset form
+        document.getElementById('recipientName').value = '';
+        document.getElementById('senderName').value = '';
+        document.getElementById('customMessage').value = '';
+
+        // Show creator view
+        showCreatorView();
+      });
+
+      createYourOwnBtn.addEventListener('click', function () {
+        // Reset form
+        document.getElementById('recipientName').value = '';
+        document.getElementById('senderName').value = '';
+        document.getElementById('customMessage').value = '';
+
+        // Show creator view
+        showCreatorView();
+      });
+
+      sendBackBtn.addEventListener('click', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const wishId = urlParams.get('wish');
+        const wish = wishDatabase.getWish(wishId);
+
+        // Pre-fill the creator form with reversed names
+        document.getElementById('recipientName').value = wish.sender || '';
+        document.getElementById('senderName').value = wish.recipient || '';
+        document.getElementById('customMessage').value = '';
+
+        // Set language
+        currentLanguage = wish.lang;
+        updateLanguage();
+
+        // Show creator view
+        showCreatorView();
+      });
+
+      // Initialize the app
+      initFromUrl();
+    });
+  </script>
+
+  <script id="sharingFunctionality">
+    document.addEventListener('DOMContentLoaded', function () {
+      const shareWhatsApp = document.getElementById('shareWhatsApp');
+      const shareFacebook = document.getElementById('shareFacebook');
+      const copyLink = document.getElementById('copyLink');
+      const downloadCard = document.getElementById('downloadCard');
+      const receiverWhatsappBtn = document.getElementById('receiverWhatsappBtn');
+      const receiverFacebookBtn = document.getElementById('receiverFacebookBtn');
+      shareWhatsApp.addEventListener('click', function () {
+        shareOnWhatsApp();
+      });
+      shareFacebook.addEventListener('click', function () {
+        const shareUrl = generateShareUrl(currentWishId);
+        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+        window.open(facebookUrl, '_blank');
+      });
+      downloadCard.addEventListener('click', function () {
+        generateCardImage();
+      });
+      copyLink.addEventListener('click', function () {
+        const shareUrl = generateShareUrl(currentWishId);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(shareUrl).then(() => {
+            const notification = document.createElement('div');
+            notification.textContent = currentLanguage === 'en' ? 'Link copied to clipboard!' :
+              currentLanguage === 'ta' ? 'இணைப்பு கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது!' :
+                'සබැඳිය ක්ලිප්බෝඩ් එකට පිටපත් කරන ලදී!';
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.left = '50%';
+            notification.style.transform = 'translateX(-50%)';
+            notification.style.backgroundColor = '#2ecc71';
+            notification.style.color = 'white';
+            notification.style.padding = '10px 20px';
+            notification.style.borderRadius = '5px';
+            notification.style.zIndex = '1000';
+            notification.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
+            document.body.appendChild(notification);
+            setTimeout(() => {
+              notification.style.opacity = '0';
+              notification.style.transition = 'opacity 0.5s';
+              setTimeout(() => notification.remove(), 500);
+            }, 2000);
+          }).catch(e => {
+            console.log('Clipboard write failed:', e);
+            fallbackCopyText(shareUrl);
+          });
+        } else {
+          fallbackCopyText(shareUrl);
+        }
+      });
+      receiverWhatsappBtn.addEventListener('click', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const wishId = urlParams.get('wish');
+        const wish = wishDatabase.getWish(wishId);
+        shareOnWhatsApp(wish);
+      });
+      receiverFacebookBtn.addEventListener('click', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const wishId = urlParams.get('wish');
+        const shareUrl = generateShareUrl(wishId);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
+      });
+    });
+
+    // ✅ FIXED: Use Web Share API if available for image sharing, else fallback to WhatsApp link
+    async function shareOnWhatsApp(wish = null) {
+      let recipient, sender, message;
+      if (wish) {
+        recipient = wish.recipient;
+        sender = wish.sender;
+        message = wish.message || translations[wish.lang].wishes[0];
+      } else {
+        recipient = document.getElementById('recipientName').value;
+        sender = document.getElementById('senderName').value;
+        message = document.getElementById('customMessage').value || translations[currentLanguage].wishes[0];
+      }
+
+      const shareTitle = currentLanguage === 'en' ? '🎄 Christmas Wishes' :
+        currentLanguage === 'ta' ? '🎄 கிறிஸ்துமஸ் வாழ்த்துக்கள்' :
+          '🎄 නත්තල් අශිර්වාද';
+
+      const shareText = `
+🎅 *From:* ${sender || (currentLanguage === 'en' ? 'Your Friend' : currentLanguage === 'ta' ? 'உங்கள் நண்பர்' : 'ඔබේ මිතුරා')}
+🎁 *To:* ${recipient || (currentLanguage === 'en' ? 'Friend' : currentLanguage === 'ta' ? 'நண்பர்' : 'සහෝදරයා')}
+
+✨ *Wish:*
+${message}
+
+🔗 *View Card:* ${wish ? generateShareUrl(wish.id) : generateShareUrl(currentWishId)}
+`;
+
+      // Try Web Share API Level 2 (File Sharing)
+      if (navigator.share) {
+        try {
+          // Generate image blob
+          const card = document.getElementById('wish-card');
+          const canvas = await html2canvas(card, {
+            scale: 2,
+            logging: false,
+            useCORS: true,
+            backgroundColor: null
+          });
+
+          canvas.toBlob(async (blob) => {
+            const file = new File([blob], 'christmas-wish.jpg', { type: 'image/jpeg' });
+
+            // Check if can share files
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+              await navigator.share({
+                title: shareTitle,
+                text: shareText,
+                files: [file]
+              });
+            } else {
+              // Fallback to text sharing via API
+              await navigator.share({
+                title: shareTitle,
+                text: shareText,
+                url: wish ? generateShareUrl(wish.id) : generateShareUrl(currentWishId)
+              });
+            }
+          }, 'image/jpeg', 0.9);
+          return; // Exit if Share API initiated
+        } catch (err) {
+          console.log('Web Share API failed, falling back to WhatsApp link:', err);
+        }
+      }
+
+      // Fallback: WhatsApp Link
+      const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    function addEmojisToMessage(message) {
+      return message
+        .replace(/joy/gi, '✨ joy ✨')
+        .replace(/peace/gi, '🕊️ peace 🕊️')
+        .replace(/happiness/gi, '😊 happiness 😊')
+        .replace(/Christmas/gi, '🎅 Christmas 🎅')
+        .replace(/holidays/gi, '🎄 holidays 🎄')
+        .replace(/love/gi, '❤️ love ❤️')
+        .replace(/laughter/gi, '😂 laughter 😂')
+        .replace(/magical/gi, '🔮 magical 🔮')
+        .replace(/family/gi, '👨‍👩‍👧‍👦 family 👨‍👩‍👧‍👦')
+        .replace(/friends/gi, '👫 friends 👫')
+        .replace(/blessings/gi, '🙏 blessings 🙏')
+        .replace(/prosperity/gi, '💰 prosperity 💰')
+        .replace(/health/gi, '💪 health 💪')
+        .replace(/warm/gi, '🔥 warm 🔥')
+        .replace(/wonderful/gi, '🌟 wonderful 🌟')
+        .replace(/special/gi, '💫 special 💫')
+        .replace(/hope/gi, '🌈 hope 🌈')
+        .replace(/dreams/gi, '💭 dreams 💭');
+    }
+
+    function fallbackCopyText(text) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        alert(currentLanguage === 'en' ? 'Link copied to clipboard!' :
+          currentLanguage === 'ta' ? 'இணைப்பு கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது!' :
+            'සබැඳිය ක්ලිප්බෝඩ් එකට පිටපත් කරන ලදී!');
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function generateCardImage() {
+      try {
+        const card = document.getElementById('wish-card');
+        html2canvas(card, {
+          scale: 2,
+          logging: false,
+          useCORS: true,
+          backgroundColor: null
+        }).then(canvas => {
+          const link = document.createElement('a');
+          link.download = 'christmas-card.jpg';
+          link.href = canvas.toDataURL('image/jpeg', 0.9);
+          link.click();
+        });
+      } catch (error) {
+        console.log('Card generation error:', error);
+        alert(currentLanguage === 'en' ? 'Failed to generate the image. Please try again.' :
+          currentLanguage === 'ta' ? 'படத்தை உருவாக்க முடியவில்லை. தயவுசெய்து மீண்டும் முயற்சிக்கவும்.' :
+            'පින්තූරය ජනනය කිරීමට අපොහොසත් විය. කරුණාකර නැවත උත්සාහ කරන්න.');
+      }
+    }
+  </script>
+
+  <script id="musicControl">
+    document.addEventListener('DOMContentLoaded', function () {
+      const musicToggle = document.getElementById('musicToggle');
+      const backgroundMusic = document.getElementById('background-music');
+
+      // Set initial volume
+      backgroundMusic.volume = 0.3;
+
+      musicToggle.addEventListener('click', function () {
+        musicEnabled = !musicEnabled;
+        if (musicEnabled) {
+          playBackgroundMusic();
+          this.querySelector('i').className = 'ri-music-fill text-white text-xl';
+        } else {
+          pauseBackgroundMusic();
+          this.querySelector('i').className = 'ri-music-line text-white text-xl';
+        }
+      });
+
+      // Auto-play music when user interacts with the page
+      document.body.addEventListener('click', function initMusic() {
+        if (!musicEnabled) {
+          // Don't auto-play, just enable the toggle
+          musicEnabled = true;
+          musicToggle.querySelector('i').className = 'ri-music-fill text-white text-xl';
+        }
+        document.body.removeEventListener('click', initMusic);
+      }, { once: true });
+    });
+  </script>
+</body>
+
+</html>
